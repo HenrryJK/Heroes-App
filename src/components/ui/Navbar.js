@@ -39,14 +39,16 @@ export const Navbar = () => {
                 <ul className="navbar-nav ml-auto">
                     <NavLink 
                         activeClassName="active"
-                        className="nav-item nav-link" 
+                        className="nav-item nav-link"  
                         exact
                         to="/login"
+                        
                     >
                         Logout
                     </NavLink>
                 </ul>
             </div>
         </nav>
+        
     )
 }
