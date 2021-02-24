@@ -1,17 +1,26 @@
-import React from 'react'
+import React from 'react';
+import  queryString from 'query-string';
+import { useLocation } from 'react-router-dom';
 import { heroes } from '../../data/heroes';
 import { useForm } from '../../hooks/useForm';
 import { HeroCard } from '../heroes/HeroCard';
 
-export const SearchScreen = () => {
-    const heroesFiltrer = heroes;
+export const SearchScreen = ({history}) => {
+    const location = useLocation();
+  //  console.log(location.search);
+    const {q = ''} =  queryString.parse(location.search)
+ 
     const [formValues , handleInputChange] = useForm({
-        searchText: ''
+        searchText: q
     });
+
+     const heroesFiltrer = heroes;
+     
     const {searchText} = formValues;
     const handleSearch = (event) => {
         event.preventDefault();
-        console.log(searchText);
+        history.push(`?q=${searchText}`)
+      //  console.log(searchText);
     }
     return (
         <div>
