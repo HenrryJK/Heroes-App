@@ -27,9 +27,5 @@ export const AppRouter = () => {
           </Switch>
         </div>
       </Router>
-
-
-
-      
     )
 }
